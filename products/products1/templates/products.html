@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<h1>List of products:</h1>
+<div class="heading">
+<h1 class="heading">List of products:</h1>
+</div>
 <form class="navbar-form navbar-left" action="{% url 'search_view' %}" method="GET">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Search" name="q">
@@ -17,24 +19,74 @@
     </li>
 </form>
 <body>
-    <ul>
+    <ul class="products">
         {% for product in products %}
             <a href="{% url 'update_product' product.id %}">
                 <li>{{product.description}}</li>
             </a>
         {% endfor %}
     </ul>
-    <a href="{% url 'create_products' %}">New product</a>
+    <a href="{% url 'create_products' %}" class="new">New product</a>
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
 
 
-<style type="text/css">
+
+<style
+type="text/css">
+
+
+    h1{
+    background: #939F5C;
+width: 1400px;
+height: 75px;
+
+    color: #D16014;
+text-align: center;
+font-family: 'Dancing Script', cursive;
+font-size: 300%;
+border: #D16014;
+border-style: solid;
+border-radius: 200%;
+
+    }
+
     body{
+        background-color: rgb(138, 206, 203);
     max-width: 320px;
     position: relative;
-    text-align: center
+    text-align: center;
     }
     body ul {padding:0}
-</style>
+    .products{
+        background: #939F5C;
+        color: #D16014;
+        font-family: 'Dancing Script', cursive;
+        font-size: 300%;
+border: #D16014;
+border-style: solid;
+border-radius: 30%;
+padding: 20px;
+list-style: none;
+width: 400px;
+height: 300px;
+    }
+    .new{
+            background: #939F5C;
+        color: #D16014;
+        font-family: 'Dancing Script', cursive;
+        font-size: 300%;
+border: #D16014;
+border-style: solid;
+border-radius: 50%;
+padding: 20px;
 
+
+    }
+    .form-group{
+        border: #D16014;
+    }
+</style>
+hhhnhgfkgfcdkmfvjdmcxdvmmfk,k,ffffmffmfffmffmvvmvvmmvvmvm
 </body>
 </html>
