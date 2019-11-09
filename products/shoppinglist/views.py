@@ -19,8 +19,8 @@ def create_product(request):
 
 
 def update_product(request, id):
-    product = Product.objects.get(id = id)
-    form = ProductForm(request.POST or None, instance = product)
+    product = Product.objects.get(id=id)
+    form = ProductForm(request.POST or None, instance=product)
     if form.is_valid():
         form.save()
         return redirect('list_products')
@@ -28,7 +28,7 @@ def update_product(request, id):
 
 
 def delete_product(request, id):
-    product = Product.objects.get(id = id)
+    product = Product.objects.get(id=id)
 
     if request.method == 'POST':
         product.delete()
@@ -37,7 +37,6 @@ def delete_product(request, id):
 
 
 class SearchView(View):
-
     template_name = 'search.html'
 
     def get(self, request, *args, **kwargs):
