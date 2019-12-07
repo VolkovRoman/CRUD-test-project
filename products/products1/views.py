@@ -41,7 +41,7 @@ class SearchView(View):
 
     def get(self, request, *args, **kwargs):
         query = self.request.GET.get('q')
-        founded_articles = Product.objects.filter(Q(description__icontains=query) | Q(description__icontains=query))
+        founded_articles = Product.objects.filter(Q(description__icontains=query))
         context = {
             'founded_articles': founded_articles
         }

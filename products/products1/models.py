@@ -12,4 +12,4 @@ class Product(models.Model):
         return self.description
 
     def get_absolute_url(self):
-        return '/update/{}/'.format(self.id)
+        return f'/update/{self.id}/'
