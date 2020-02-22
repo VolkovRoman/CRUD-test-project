@@ -3,9 +3,14 @@ version: '3'
 services:
   db:
     image: postgres
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
   web:
     build: .
-    command: python products/manage.py runserver 0.0.0.0:8000
+    command: >
+      bash -c "python products/manage.py makemigrations --noinput &&
+      python products/manage.py migrate --noinput &&
+      python products/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
