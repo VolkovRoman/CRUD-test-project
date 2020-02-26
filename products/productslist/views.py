@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Product
 from .forms import ProductForm
-from django.views import View
+from django.views.generic import TemplateView
 from django.db.models import Q
 
 
@@ -18,8 +18,8 @@ def create_product(request):
     return render(request, 'products-form.html', {'form': form})
 
 
-def update_product(request, id):
-    product = Product.objects.get(id=id)
+def update_product(request, pk):
+    product = Product.objects.get(id=pk)
     form = ProductForm(request.POST or None, instance=product)
     if form.is_valid():
         form.save()
@@ -27,8 +27,8 @@ def update_product(request, id):
     return render(request, 'products-form.html', {'form': form, 'product': product})
 
 
-def delete_product(request, id):
-    product = Product.objects.get(id=id)
+def delete_product(request, pk):
+    product = Product.objects.get(id=pk)
 
     if request.method == 'POST':
         product.delete()
@@ -36,7 +36,7 @@ def delete_product(request, id):
     return render(request, 'prod-delete-confirm.html', {'product': product})
 
 
-class SearchView(View):
+class SearchView(TemplateView):
     template_name = 'search.html'
 
     def get(self, request, *args, **kwargs):
