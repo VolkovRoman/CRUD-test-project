@@ -2,3 +2,4 @@ venv/
 __pycache__
 .idea
 /products/products1/migrations/
+/products/products/local_settings.py
