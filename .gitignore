@@ -1,5 +1,5 @@
 venv/
 __pycache__
 .idea
-/products/products1/migrations/
+/products/productslist/migrations/
 /products/products/local_settings.py

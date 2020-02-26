@@ -6,10 +6,10 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=9, decimal_places=2)
     quantity = models.IntegerField()
 
-    objects = models.Manager
+    objects = models.Manager()
 
     def __str__(self):
         return self.description
 
     def get_absolute_url(self):
-        return f'/update/{self.id}/'
+        return f'/update/{self.pk}/'
